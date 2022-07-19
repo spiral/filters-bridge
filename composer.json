@@ -30,7 +30,8 @@
     "require-dev": {
         "spiral/framework": "^3.0",
         "phpunit/phpunit": "^9.5",
-        "mockery/mockery": "^1.5"
+        "mockery/mockery": "^1.5",
+        "vimeo/psalm": "^4.9"
     },
     "autoload": {
         "psr-4": {
