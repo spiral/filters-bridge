@@ -11,12 +11,15 @@ class ValidateArrayTest extends BaseTest
 {
     public function testValid(): void
     {
-        $filter = $this->getProvider()->createFilter(ValidateArrayFilter::class, new ArrayInput([
-            'tests' => [
-                ['id' => 'value'],
-                ['id' => 'value2'],
-            ]
-        ]));
+        $filter = $this->getProvider()->createFilter(
+            ValidateArrayFilter::class,
+            new ArrayInput([
+                'tests' => [
+                    ['id' => 'value'],
+                    ['id' => 'value2'],
+                ],
+            ])
+        );
 
         $this->assertTrue($filter->isValid());
 
@@ -26,12 +29,15 @@ class ValidateArrayTest extends BaseTest
 
     public function testInvalid(): void
     {
-        $filter = $this->getProvider()->createFilter(ValidateArrayFilter::class, new ArrayInput([
-            'tests' => [
-                ['id' => 'value'],
-                ['id' => null],
-            ]
-        ]));
+        $filter = $this->getProvider()->createFilter(
+            ValidateArrayFilter::class,
+            new ArrayInput([
+                'tests' => [
+                    ['id' => 'value'],
+                    ['id' => null],
+                ],
+            ])
+        );
 
         $this->assertFalse($filter->isValid());
 
@@ -41,22 +47,25 @@ class ValidateArrayTest extends BaseTest
         $this->assertSame([
             'tests' => [
                 1 => [
-                    'id' => 'This value is required.'
-                ]
-            ]
+                    'id' => 'This value is required.',
+                ],
+            ],
         ], $filter->getErrors());
     }
 
     public function testEmpty(): void
     {
-        $filter = $this->getProvider()->createFilter(ValidateArrayFilter::class, new ArrayInput([
-            'tests' => []
-        ]));
+        $filter = $this->getProvider()->createFilter(
+            ValidateArrayFilter::class,
+            new ArrayInput([
+                'tests' => [],
+            ])
+        );
 
         $this->assertFalse($filter->isValid());
 
         $this->assertSame([
-            'tests' => 'No tests are specified.'
+            'tests' => 'No tests are specified.',
         ], $filter->getErrors());
     }
 }

@@ -23,6 +23,8 @@
         "spiral/boot": "^3.0",
         "spiral/filters": "^3.0",
         "spiral/translator": "^3.0",
+        "spiral/console": "^3.0",
+        "spiral/scaffolder": "^3.0",
         "spiral/validator": "^1.0"
     },
     "require-dev": {

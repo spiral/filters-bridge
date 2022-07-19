@@ -25,16 +25,16 @@ abstract class BaseTest extends TestCase
 {
     public const VALIDATION_CONFIG = [
         'checkers' => [
-            'file'    => FileChecker::class,
-            'image'   => ImageChecker::class,
-            'type'    => TypeChecker::class,
+            'file' => FileChecker::class,
+            'image' => ImageChecker::class,
+            'type' => TypeChecker::class,
             'address' => AddressChecker::class,
-            'string'  => StringChecker::class
+            'string' => StringChecker::class,
         ],
-        'aliases'  => [
+        'aliases' => [
             'notEmpty' => 'type::notEmpty',
-            'email'    => 'address::email',
-            'url'      => 'address::url',
+            'email' => 'address::email',
+            'url' => 'address::url',
         ],
     ];
 

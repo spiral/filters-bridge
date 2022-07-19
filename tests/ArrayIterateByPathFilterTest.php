@@ -11,13 +11,16 @@ class ArrayIterateByPathFilterTest extends BaseTest
 {
     public function testValid(): void
     {
-        $filter = $this->getProvider()->createFilter(ArrayIterateByPathFilter::class, new ArrayInput([
-            'custom' => [
-                0 => ['id' => 'value'],
-                1 => ['id' => 'value2'],
-            ],
-            'by'     => [0 => 'value', 1 => 'value']
-        ]));
+        $filter = $this->getProvider()->createFilter(
+            ArrayIterateByPathFilter::class,
+            new ArrayInput([
+                'custom' => [
+                    0 => ['id' => 'value'],
+                    1 => ['id' => 'value2'],
+                ],
+                'by' => [0 => 'value', 1 => 'value'],
+            ])
+        );
 
         $this->assertTrue($filter->isValid());
 
@@ -27,13 +30,16 @@ class ArrayIterateByPathFilterTest extends BaseTest
 
     public function testExcludeElement(): void
     {
-        $filter = $this->getProvider()->createFilter(ArrayIterateByPathFilter::class, new ArrayInput([
-            'custom' => [
-                0 => ['id' => 'value'],
-                1 => ['id' => 'value2'],
-            ],
-            'by'     => [0 => 'value']
-        ]));
+        $filter = $this->getProvider()->createFilter(
+            ArrayIterateByPathFilter::class,
+            new ArrayInput([
+                'custom' => [
+                    0 => ['id' => 'value'],
+                    1 => ['id' => 'value2'],
+                ],
+                'by' => [0 => 'value'],
+            ])
+        );
 
         $this->assertTrue($filter->isValid());
 
@@ -43,17 +49,20 @@ class ArrayIterateByPathFilterTest extends BaseTest
 
     public function testInvalid(): void
     {
-        $filter = $this->getProvider()->createFilter(ArrayIterateByPathFilter::class, new ArrayInput([
-            'custom' => [
-                'a' => ['id' => 'value'],
-                'b' => ['id' => null],
-            ],
-            'by'     => [
-                'a' => 1,
-                'b' => 2,
-                'c' => 3
-            ]
-        ]));
+        $filter = $this->getProvider()->createFilter(
+            ArrayIterateByPathFilter::class,
+            new ArrayInput([
+                'custom' => [
+                    'a' => ['id' => 'value'],
+                    'b' => ['id' => null],
+                ],
+                'by' => [
+                    'a' => 1,
+                    'b' => 2,
+                    'c' => 3,
+                ],
+            ])
+        );
 
         $this->assertFalse($filter->isValid());
 
@@ -65,7 +74,7 @@ class ArrayIterateByPathFilterTest extends BaseTest
             'custom' => [
                 'b' => ['id' => 'This value is required.'],
                 'c' => ['id' => 'This value is required.'],
-            ]
+            ],
         ], $filter->getErrors());
     }
 
