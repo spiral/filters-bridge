@@ -118,7 +118,7 @@ abstract class Filter extends SchematicEntity implements FilterInterface
     {
         if ($this->errors === null) {
             $this->errors = [];
-            foreach ($this->validator->withData($this)->getErrors() as $field => $error) {
+            foreach ($this->validator->withData($this->toArray())->getErrors() as $field => $error) {
                 if (\is_string($error) && Translator::isMessage($error)) {
                     // translate error message
                     $error = $this->say($error);
