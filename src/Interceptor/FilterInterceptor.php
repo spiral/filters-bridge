@@ -26,9 +26,6 @@ class FilterInterceptor implements CoreInterceptorInterface
     ) {
     }
 
-    /**
-     * @inheritDoc
-     */
     public function process(string $controller, string $action, array $parameters, CoreInterface $core): mixed
     {
         foreach ($this->getDeclaredFilters($controller, $action) as $parameter => $filterClass) {

@@ -98,7 +98,7 @@ final class SchemaBuilder
                 $iterate = true;
             }
 
-            if (! empty($definition[self::OPTIONAL]) && $definition[self::OPTIONAL]) {
+            if (! empty($definition[self::OPTIONAL])) {
                 $optional = true;
             }
 
@@ -138,7 +138,7 @@ final class SchemaBuilder
     private function parseDefinition(string $field, string $definition): array
     {
         if (! \str_contains($definition, ':')) {
-            return ['data', $definition ?? $field];
+            return ['data', $definition === '' ? $field : $definition];
         }
 
         return \explode(':', $definition);

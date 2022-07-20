@@ -53,6 +53,7 @@ class FilterCommand extends AbstractCommand
      */
     public function perform(): int
     {
+        /** @var FilterDeclaration $declaration */
         $declaration = $this->createDeclaration(FilterDeclaration::class);
         $className = $declaration->getClass()->getName();
 

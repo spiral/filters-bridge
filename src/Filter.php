@@ -6,6 +6,7 @@ namespace Spiral\Filters;
 
 use Spiral\Models\Exception\EntityExceptionInterface;
 use Spiral\Models\SchematicEntity;
+use Spiral\Models\ValueInterface;
 use Spiral\Translator\Traits\TranslatorTrait;
 use Spiral\Translator\Translator;
 use Spiral\Validation\ValidatorInterface;
@@ -208,7 +209,7 @@ abstract class Filter extends SchematicEntity implements FilterInterface
             return false;
         }
 
-        if ($value instanceof FilterInterface) {
+        if ($value instanceof ValueInterface) {
             return $value->getValue() !== [];
         }
 
