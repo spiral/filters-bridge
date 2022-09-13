@@ -7,7 +7,7 @@ namespace Spiral\Filters\Interceptor;
 use Psr\Container\ContainerInterface;
 use Spiral\Core\CoreInterceptorInterface;
 use Spiral\Core\CoreInterface;
-use Spiral\Domain\Exception\InvalidFilterException;
+use Spiral\Filters\Exception\InvalidFilterException;
 use Spiral\Filters\FilterInterface;
 
 /**
