@@ -34,7 +34,7 @@ final class ArrayInput implements InputInterface
         return $input;
     }
 
-    public function getValue(string $source, string $name = null): mixed
+    public function getValue(string $source, ?string $name = null): mixed
     {
         try {
             return $this->dotGet($name);
