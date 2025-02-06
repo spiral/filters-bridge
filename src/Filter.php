@@ -99,7 +99,7 @@ abstract class Filter extends SchematicEntity implements FilterInterface
         $this->errors = null;
     }
 
-    public function setField(string $name, mixed $value, bool $filter = true): self
+    public function setField(string $name, mixed $value, ?bool $filter = true): self
     {
         parent::setField($name, $value, $filter);
         $this->reset();

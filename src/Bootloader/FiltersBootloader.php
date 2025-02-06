@@ -47,7 +47,7 @@ final class FiltersBootloader extends Bootloader implements InjectorInterface
         $this->registerCommands($console);
     }
 
-    public function createInjection(\ReflectionClass $class, string $context = null): object
+    public function createInjection(\ReflectionClass $class, ?string $context = null): object
     {
         return $this->container->get(FilterProviderInterface::class)->createFilter(
             $class->getName(),
